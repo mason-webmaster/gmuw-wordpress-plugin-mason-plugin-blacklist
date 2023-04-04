@@ -22,8 +22,40 @@ if (!defined('WPINC')) {
 	// define list of disallowed plugins. You could define a different list in the wp-config file.
 	if ( ! defined( 'GMUW_DISALLOWED_PLUGINS' ) ) {
 		define( 'GMUW_DISALLOWED_PLUGINS', [
+			// elementor
 			'elementor',
-			'elementor-pro'
+			'elementor-pro',
+			'elementor-beta',
+			// elementor addons
+			'essential-addons-for-elementor-lite',
+			'premium-addons-for-elementor',
+			'royal-elementor-addons',
+			'header-footer-elementor',
+			'happy-elementor-addons',
+			'elementskit-lite',
+			'jeg-elementor-kit',
+			'unlimited-elements-for-elementor',
+			'ele-custom-skin',
+			'qi-addons-for-elementor',
+			'sticky-header-effects-for-elementor',
+			'visibility-logic-elementor',
+			'addon-elements-for-elementor-page-builder',
+			'portfolio-elementor',
+			'connect-polylang-elementor',
+			'addons-for-elementor',
+			'metform',
+			'anywhere-elementor',
+			'powerpack-lite-for-elementor',
+			'ooohboi-steroids-for-elementor',
+			'music-player-for-elementor',
+			'exclusive-addons-for-elementor',
+			'rife-elementor-extensions',
+			'scroll-magic-addon-for-elementor',
+			'the-plus-addons-for-elementor-page-builder',
+			'piotnet-addons-for-elementor',
+			'custom-icons-for-elementor',
+			'timeline-widget-addon-for-elementor',
+			'skyboot-custom-icons-for-elementor'
 		] );
 	}
 	// define notification email. You could define a different value for this constant in the wp-config file.

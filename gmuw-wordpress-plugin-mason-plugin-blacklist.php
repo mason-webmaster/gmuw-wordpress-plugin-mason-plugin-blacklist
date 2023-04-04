@@ -66,27 +66,3 @@ function gmuw_prevent_activation( $plugin, $network_wide ) {
 
 	}
 }
-
-// prevent people from installing plugins if they are on the list
-add_filter( 'user_has_cap', 'gmuw_prevent_install_plugins_cap', 10, 4 );
-function gmuw_prevent_install_plugins_cap( $allcaps, $caps, $args, $user ) {
-	if ( ! in_array( 'install_plugins', $caps ) ) {
-		return $allcaps;
-	}
-
-	$action = isset( $_REQUEST['action'] ) ? $_REQUEST['action'] : '';
-	$plugin = isset( $_REQUEST['slug'] ) ? trim( $_REQUEST['slug'] ) : '';
-	if ( in_array( $plugin, GMUW_DISALLOWED_PLUGINS ) ) {
-		$allcaps['install_plugins'] = 0;
-
-		$username  = $user->data->user_nicename;
-		$useremail = $user->data->user_email;
-		$site      = site_url();
-		$to        = GMUW_DISALLOWED_PLUGINS_NOTIFICATION_EMAIL;
-		$subject   = 'Plugin Blacklist Triggered';
-		$message   = "The user $username ($useremail) at $site attempted to install the $plugin, which has been blacklisted ";
-		wp_mail( $to, $subject, $message );
-	}
-
-	return $allcaps;
-}

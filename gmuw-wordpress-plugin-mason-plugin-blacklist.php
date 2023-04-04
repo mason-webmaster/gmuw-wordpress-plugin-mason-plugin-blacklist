@@ -53,7 +53,17 @@ add_action( 'activate_plugin', 'gmuw_prevent_activation', 1, 2 );
 function gmuw_prevent_activation( $plugin, $network_wide ) {
 	$plug_slug = explode( '/', $plugin );
 	if ( in_array( $plug_slug[0], GMUW_DISALLOWED_PLUGINS ) ) {
+
+		// send notification email
+		$site      = site_url();
+		$to        = GMUW_DISALLOWED_PLUGINS_NOTIFICATION_EMAIL;
+		$subject   = "Plugin Activation Blocked: $site / $plugin";
+		$message   = "Someone at $site attempted to activate the plugin: $plugin, which is on the blacklist.";
+		wp_mail( $to, $subject, $message );
+
+		// throw exception
 		throw new \Exception();
+
 	}
 }
 

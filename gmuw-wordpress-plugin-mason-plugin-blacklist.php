@@ -55,7 +55,9 @@ if (!defined('WPINC')) {
 			'piotnet-addons-for-elementor',
 			'custom-icons-for-elementor',
 			'timeline-widget-addon-for-elementor',
-			'skyboot-custom-icons-for-elementor'
+			'skyboot-custom-icons-for-elementor',
+			// other
+			'all-in-one-event-calendar',
 		] );
 	}
 	// define notification email. You could define a different value for this constant in the wp-config file.
